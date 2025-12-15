@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sailtik | Matcha Powder Supplier for B2B Wholesale & OEM",
@@ -19,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-deep-green font-sans">{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
