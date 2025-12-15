@@ -2,15 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 
-type LeadPayload = {
-  fullName?: string;
-  company?: string;
-  email?: string;
-  country?: string;
-  monthlyUsage?: string;
-  interestedIn?: string[];
-  message?: string;
-};
+existing.push(data);
 
 const leadsFile = path.join(process.cwd(), "data", "leads.json");
 
