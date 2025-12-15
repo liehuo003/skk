@@ -12,22 +12,14 @@ type LeadPayload = {
   message?: string;
 };
 
-type StoredLead = LeadPayload & {
-  createdAt: string;
-};
-
 const leadsFile = path.join(process.cwd(), "data", "leads.json");
 
 async function persistLead(data: LeadPayload) {
   try {
     await fs.mkdir(path.dirname(leadsFile), { recursive: true });
     const existingRaw = await fs.readFile(leadsFile, "utf8").catch(() => "[]");
-    const existing = JSON.parse(existingRaw) as StoredLead[];
-    const payload: StoredLead = {
-      ...data,
-      createdAt: new Date().toISOString()
-    };
-    existing.push(payload);
+    const existing = JSON.parse(existingRaw) as LeadPayload[];
+    existing.push({ ...data, createdAt: new Date().toISOString() });
     await fs.writeFile(leadsFile, JSON.stringify(existing, null, 2));
     return true;
   } catch (error) {
