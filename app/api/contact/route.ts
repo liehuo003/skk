@@ -10,7 +10,6 @@ type LeadPayload = {
   monthlyUsage?: string;
   interestedIn?: string[];
   message?: string;
-  createdAt?: string;
 };
 
 const leadsFile = path.join(process.cwd(), "data", "leads.json");
